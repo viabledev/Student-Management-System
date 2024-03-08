@@ -19,6 +19,4 @@ public class StudentRestController {
          return student;
     }
 
-
-
 }
