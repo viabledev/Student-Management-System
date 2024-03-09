@@ -2,6 +2,7 @@ package com.viabledev.rest;
 
 public class Student {
 
+    private Long id;
     private String name;
     private String email;
     private String address;
@@ -57,6 +58,15 @@ public class Student {
     public void setPhoneNumber(int phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
 
     @Override
     public String toString() {

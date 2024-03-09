@@ -2,7 +2,12 @@ package com.viabledev.rest;
 
 import com.viabledev.service.IStudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 // Rest Controller is used for making REST API => POST, GET, PUT, DELETE
 @RestController
@@ -25,6 +30,22 @@ public class StudentRestController {
          return st;
     }
 
+    @GetMapping("/Students")
+    public List<Student> getAllStudents(){
+    //Invoke Service method responsible to retrieve all records of Students.
+            List<Student> list = service.getAllStudent();
+            return list;
+    }
 
+    @GetMapping("/Student/{id}")
+    public Student getStudentById(@PathVariable Integer id){
 
+        return new Student();
+    }
+
+    @DeleteMapping ("/Student/{id}")
+    public ResponseEntity<Student> deleteStudentById(@PathVariable Integer id){
+
+        return ResponseEntity.noContent().build();
+    }
 }
