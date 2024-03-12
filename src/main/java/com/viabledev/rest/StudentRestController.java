@@ -12,6 +12,7 @@ import java.util.List;
 // Rest Controller is used for making REST API => POST, GET, PUT, DELETE
 @RestController
 @RequestMapping("/api")
+@CrossOrigin(origins = "")
 
 
 //  GetMapping is used to give correct webpage for the method. @GetMapping(" / ")
@@ -38,13 +39,16 @@ public class StudentRestController {
     }
 
     @GetMapping("/Student/{id}")
-    public Student getStudentById(@PathVariable Integer id){
+    public ResponseEntity<Student> getStudentById(@PathVariable Integer id){
 
-        return new Student();
+        Student stu = service.getStudentById(id);
+        return ResponseEntity.ok(stu);
     }
 
     @DeleteMapping ("/Student/{id}")
     public ResponseEntity<Student> deleteStudentById(@PathVariable Integer id){
+
+        service.deleteStudentById(id);
 
         return ResponseEntity.noContent().build();
     }
