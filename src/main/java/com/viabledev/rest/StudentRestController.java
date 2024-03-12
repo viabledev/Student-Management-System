@@ -9,21 +9,18 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
-// Rest Controller is used for making REST API => POST, GET, PUT, DELETE
 @RestController
 @RequestMapping("/api")
 @CrossOrigin(origins = "")
 
 
-//  GetMapping is used to give correct webpage for the method. @GetMapping(" / ")
-//  The port will be mentioned in application.properties
 
 public class StudentRestController {
 
     @Autowired
     private IStudentService service;
 
-// PostMapping is used to collect data from the client directly and not through the address
+
     @PostMapping("/Student")
     public Student registerStudent(@RequestBody Student student){
         System.out.println("Student Data " + student);
@@ -33,7 +30,6 @@ public class StudentRestController {
 
     @GetMapping("/Students")
     public List<Student> getAllStudents(){
-    //Invoke Service method responsible to retrieve all records of Students.
             List<Student> list = service.getAllStudent();
             return list;
     }

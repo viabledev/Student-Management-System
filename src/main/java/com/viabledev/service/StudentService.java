@@ -18,7 +18,7 @@ public class StudentService implements IStudentService{
 
     @Override
     public Student saveStudent(Student student){
-            //Logic to store the data in DB
+
             repo.save(student);
             return student;
     }
